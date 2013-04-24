@@ -1,0 +1,159 @@
+.login-buttons {
+    margin-top: 5em;   /* This is the login/logout button */
+}
+
+.login-box {        /* This needs to appear somewhere around the button */
+    z-index: 40;
+    position:relative;
+    left: -2.5%;
+    margin-top: 5em;
+}
+
+
+.login-form {
+    margin: 2px 2px 2px 2px;
+}
+
+
+#btn-login-submit {
+    margin-top: 0;
+}
+.login-form > button {
+    /*float: right;*/
+}
+
+.right-side {
+    margin-left: 93%;   /* This is related to the login-overlay setting. It ensures the login box lines up with the button */
+}
+
+
+.fade-enter-setup, .fade-leave-setup {
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+.fade-enter-setup {
+    opacity:0;
+}
+.fade-enter-setup.fade-enter-start {
+    opacity:1;
+}
+
+.fade-leave-setup {
+    opacity:1;
+}
+.fade-leave-setup.fade-leave-start {
+    opacity:0;
+}
+
+
+.arrow_box {
+    position: relative;
+    background: #88b7d5;
+    border: 4px solid #c2e1f5;
+}
+.arrow_box:after, .arrow_box:before {
+    left: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.arrow_box:after {
+    border-color: rgba(136, 183, 213, 0);
+    border-left-color: #88b7d5;
+    border-width: 30px;
+    top: 50%;
+    margin-top: -30px;
+}
+.arrow_box:before {
+    border-color: rgba(194, 225, 245, 0);
+    border-left-color: #c2e1f5;
+    border-width: 36px;
+    top: 50%;
+    margin-top: -36px;
+}
+
+#container {
+    background-color: white;
+}
+
+#container h1 {
+    border-bottom: 1px solid red;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.content {
+    width: 80%;
+    margin: 0px auto;
+
+}
+
+.view-enter-setup, .view-leave-setup {
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+    -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+    -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.25s;
+}
+
+.view-enter-setup {
+    opacity:0;
+    /*left:100px;
+    width:100%;*/
+    width: 75%;
+    position: absolute;
+}
+.view-enter-setup.view-enter-start {
+    /*left:0;*/
+    opacity:1;
+}
+
+.view-leave-setup {
+    position: absolute;
+    /*left:0;*/
+    width:75%;
+    opacity:1;
+}
+.view-leave-setup.view-leave-start {
+    /*left:-100px;*/
+    opacity:0;
+}
+
+.footer {
+    width: 80%;
+    /*top: 80%;*/
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    border-top: 1px black solid;
+}
+
+.navbar-inner{
+    background: url("img/header_bg.jpg") repeat-x;
+}
+
+.navbar .container-fluid { height: 6em; }
+
+.navbar .brand{
+    /*background: url("img/usa-dance-pittsburgh-chapter-3007.jpg") no-repeat;*/
+    height: 5em;
+    padding-top: 0.5em;
+}
+
+.brand img {
+    width: 80%;
+    height: auto;
+}
+
+.navbar .nav {
+    margin-top: 5em;
+}
+
+.navbar .nav>li>a {
+    color: white;
+}
