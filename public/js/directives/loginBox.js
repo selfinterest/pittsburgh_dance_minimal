@@ -16,9 +16,10 @@ angular.module("loginBoxDirective", [])     //Module dependencies would go in []
             /*
                 So what's going on here? We've isolated the scope so that this directive only has access to the data in the parent scope it needs to do its
                 job. What is that data?
-                (1) The username and password. These are contained within form controls represented in the parent scope (NavCtrl, in this case.)
+                (1) The username and password. These are contained within form controls already within the scope (they're in loginBox.html.)
                 (2) A flag to watch, set when the login form shows.
                 (3) A submit action.
+                (4) A flag that gets triggered when the login is invalid.
              */
             scope.$watch(scope.focusWhen, function () {       //We set up a watch on login.showLogin.
                 $(element).find("input")[0].focus();            //Put focus on the first text input, which should be the one for user name.
