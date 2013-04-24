@@ -46,7 +46,6 @@
 <!-- scripts. Because Angular is awesome, the order they are loaded in doesn't matter, as long as app.js is loaded first -->
 <!-- This could eventually be migrated to a script loader, for further simplification -->
 <script src="public/js/app.js"></script>
-<script src="public/js/controllers/TicketCtrl.js"></script>
 <script src="public/js/controllers/NavCtrl.js"></script>
 <script src="public/js/controllers/EventsCtrl.js"></script>
 <script src="public/js/controllers/AccountCtrl.js"></script>
