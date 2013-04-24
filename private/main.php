@@ -15,11 +15,11 @@
 </head>
 <body global-events>
 <!-- nav bar -->
-<div class="navbar" ng-controller="NavCtrl">
+<div class="navbar" ng-controller="NavCtrl" ng-cloak>
     <div class="navbar-inner">
         <div class="container">
             <a href="/" class="brand"><img class="brand" src="public/css/img/usa-dance-pittsburgh-chapter-3007.jpg"/></a>
-            <ul class="nav">
+            <ul class="nav" ng-cloak>
                 <li ng-repeat="item in menu.items" ng-class="{active: item.active}"><a ng-href="{{item.link}}">{{item.text}}</a></li>
             </ul>
             <form class="navbar-form pull-right login-buttons">
@@ -28,7 +28,7 @@
             </form>
             <div class="login-box span4 pull-right" ng-switch on="login.showLogin" ng-animate="'fade'" ng-cloak>
                 <div class="arrow_box" ng-switch-when="true">
-                    <login-box></login-box>
+                    <login-box focusWhen="login.showLogin" submit="login.perform" invalid="login.invalid"></login-box>
                 </div>
             </div>
         </div>
@@ -48,7 +48,6 @@
 <script src="public/js/app.js"></script>
 <script src="public/js/controllers/TicketCtrl.js"></script>
 <script src="public/js/controllers/NavCtrl.js"></script>
-<script src="public/js/controllers/LoginCtrl.js"></script>
 <script src="public/js/controllers/EventsCtrl.js"></script>
 <script src="public/js/controllers/AccountCtrl.js"></script>
 <script src="public/js/controllers/ContactCtrl.js"></script>

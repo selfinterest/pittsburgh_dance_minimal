@@ -11,7 +11,7 @@ var app = angular.module("dance", ["ui.bootstrap", "dance.services", "dance.dire
         $locationProvider.hashPrefix("!");
         $routeProvider
             .when("/", {            //If root URL, we redirect to events
-                redirectTo: "events"
+                redirectTo: "/events"
             })
             .when("/events", {      //We load the events.html template. This will update the view and initialize the EventsCtrl controller
                 templateUrl: "public/templates/events.html",
@@ -30,6 +30,6 @@ var app = angular.module("dance", ["ui.bootstrap", "dance.services", "dance.dire
                 controller: "RegisterCtrl"
             })
             .otherwise( {
-                "templateUrl": "public/templates/notfound.html"
+                templateUrl: "public/templates/notfound.html"
             })
     }]);
