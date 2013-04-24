@@ -10,7 +10,7 @@ var app = angular.module("dance", ["ui.bootstrap", "dance.services", "dance.dire
         $locationProvider.html5Mode(true); //<-- this provides better URLs, but requires server/backend reconfiguration, like an .htaccess file
         $locationProvider.hashPrefix("!");
         $routeProvider
-            .when("", {            //If root URL, we redirect to events
+            .when("/", {            //If root URL, we redirect to events
                 redirectTo: "events"
             })
             .when("/events", {      //We load the events.html template. This will update the view and initialize the EventsCtrl controller
