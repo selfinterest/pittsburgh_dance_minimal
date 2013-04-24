@@ -7,7 +7,7 @@
  * different controllers, and one way to do that is to use a service.
  */
 angular.module('dance.services', [])
-    .service('loginService', function (){
+    .service('loginService', ["$http", function ($http){
         var service = {};
         service.showLogin = false;      //default value.
         service.loggedIn = false;       //Set to true if the user is logged in.
@@ -21,16 +21,20 @@ angular.module('dance.services', [])
         service.perform = function(username, password, callback){
             console.log("Performing login.");
             console.log("User is: "+ username);
-            if(username == "Terrence"){     //This should contact the server
-                service.loggedIn = true;       //log the user in
-                service.showLogin = false;     //hide the login box
-                if(typeof(callback) == "function")
-                    callback(true);
-            } else {
-                service.invalid = true;        //Invalid login. Show feedback.
-                if(typeof(callback) == "function")
-                    callback(false);
-            }
+
+            $http.post("/api/login", {username: username, password: password}).success( function(data){
+                if(data.success){
+                    service.loggedIn = true;
+                    service.showLogin = false;
+                    if(typeof(callback) == "function")
+                        callback(true);
+                } else {
+                    service.invalid = true;        //Invalid login. Show feedback.
+                    if(typeof(callback) == "function")
+                        callback(false);
+                }
+            })
+
         }
 
         service.logout = function(){
@@ -38,7 +42,7 @@ angular.module('dance.services', [])
             service.loggedIn = false;
         }
         return service;
-    })
+    }])
 
     /**
      * This service handles the menu.

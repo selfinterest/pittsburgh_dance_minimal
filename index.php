@@ -4,23 +4,30 @@
  */
 error_reporting(E_ERROR | E_WARNING | E_PARSE);
 
-require_once('private/epiphany/src/Epi.php');
-Epi::setPath('base', 'private/epiphany/src');
-Epi::init('route');
+require_once('private/PhpConsole.php');
+PhpConsole::start(true, true, dirname(__FILE__));
 
-//API routes
-getRoute()->get('/api/login', array('Api', 'login'));
+require('private/Slim/Slim.php');
+\Slim\Slim::registerAutoloader();
 
-getRoute()->get('/(.*)', "index");      //Catch all route. Should go last. Any requests not caught by the other routes go to index()
+$app = new \Slim\Slim();
+//$app->add(new \Slim\Middleware\ContentTypes());
 
-getRoute()->run();
-
-function index(){
+//debug($app->request()->post("username"));
+$app->get("/(:whatever)", function() {
     require_once("private/main.php");
-}
+});
 
-class Api {
-    static public function login(){
-        echo "This would normally be POST'd to, and would log in a user. Or something.";
+$app->post("/api/login", function() use ($app){
+    $requestBody = json_decode($app->request()->getBody());
+    $response = [];
+    if($requestBody->username == "Terrence"){
+        $response["success"] = true;
+    } else {
+        $response["success"] = false;
     }
-}
+    echo json_encode($response);
+});
+
+
+$app->run();
