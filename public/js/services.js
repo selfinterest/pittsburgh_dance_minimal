@@ -35,8 +35,11 @@ angular.module('dance.services', [])
                 }
             })
 
-        }
+        };
 
+        /**
+         * Logs out the user.
+         */
         service.logout = function(){
             //This should actually contact the server to initiate logout, but we'll just reset the flag.
             $http.post("/api/logout").success(function(data){

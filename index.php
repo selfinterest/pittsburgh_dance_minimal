@@ -34,6 +34,7 @@ $app->post("/api/login", function() use ($app){
 
 $app->post("/api/logout", function() use ($app){
     $app->deleteCookie("loggedIn");
+    echo json_encode(array("success" => true));
 });
 
 
