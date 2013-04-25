@@ -7,10 +7,10 @@
  * different controllers, and one way to do that is to use a service.
  */
 angular.module('dance.services', [])
-    .service('loginService', ["$http", function ($http){
+    .service('loginService', ["$http", "$cookieStore", function ($http, $cookieStore){
         var service = {};
         service.showLogin = false;      //default value.
-        service.loggedIn = false;       //Set to true if the user is logged in.
+        service.loggedIn = $cookieStore.get("loggedIn");       //Set to true if the user is logged in.
 
         /**
          * Logs in the user
@@ -39,7 +39,12 @@ angular.module('dance.services', [])
 
         service.logout = function(){
             //This should actually contact the server to initiate logout, but we'll just reset the flag.
-            service.loggedIn = false;
+            $http.post("/api/logout").success(function(data){
+                service.loggedIn = false;
+                $cookieStore.put("loggedIn", false);
+            })
+
+
         }
         return service;
     }])

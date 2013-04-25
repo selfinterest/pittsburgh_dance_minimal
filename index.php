@@ -12,6 +12,7 @@ require('private/Slim/Slim.php');
 
 $app = new \Slim\Slim();
 $app->add(new \Slim\Middleware\ContentTypes());
+$app->add(new \Slim\Middleware\SessionCookie());
 
 //debug($app->request()->post("username"));
 $app->get("/(:whatever)", function() {
@@ -24,10 +25,15 @@ $app->post("/api/login", function() use ($app){
     $response = [];
     if($requestBody["username"] == "Terrence"){
         $response["success"] = true;
+        $app->setCookie("loggedIn", true);
     } else {
         $response["success"] = false;
     }
     echo json_encode($response);
+});
+
+$app->post("/api/logout", function() use ($app){
+    $app->deleteCookie("loggedIn");
 });
 
 

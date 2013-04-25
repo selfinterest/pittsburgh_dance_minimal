@@ -11,6 +11,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.4/angular.min.js"></script>
     <script src="public/components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="public/components/angular/angular-cookies.min.js"></script>
     <title>SimplyDance</title>
 </head>
 <body global-events>

@@ -29,7 +29,7 @@ angular.module("loginBoxDirective", [])     //Module dependencies would go in []
                 <login-box focusWhen="login.showLogin" submit="login.perform" invalid="login.invalid"></login-box>
 
                 So the value of scope.focusWhen is set to the value of login.showLogin on the parent scope (that is, NavCtrl.)
-                The value of invalid is set to the value of login.showLogin on the parent scope.
+                The value of invalid is set to the value of login.invalid on the parent scope.
 
                 Think of this as a way of selectively giving the the directive access to controller data without giving it full access to the controller's data.
                 This limits side-effects. The directive does not NEED to ALTER controller data. It just needs to USE controller data. An isolation scope
