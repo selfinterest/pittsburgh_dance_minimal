@@ -11,7 +11,7 @@ require('private/Slim/Slim.php');
 \Slim\Slim::registerAutoloader();
 
 $app = new \Slim\Slim();
-//$app->add(new \Slim\Middleware\ContentTypes());
+$app->add(new \Slim\Middleware\ContentTypes());
 
 //debug($app->request()->post("username"));
 $app->get("/(:whatever)", function() {
@@ -19,9 +19,10 @@ $app->get("/(:whatever)", function() {
 });
 
 $app->post("/api/login", function() use ($app){
-    $requestBody = json_decode($app->request()->getBody());
+    //$requestBody = json_decode($app->request()->getBody());
+    $requestBody = $app->request()->getBody();
     $response = [];
-    if($requestBody->username == "Terrence"){
+    if($requestBody["username"] == "Terrence"){
         $response["success"] = true;
     } else {
         $response["success"] = false;

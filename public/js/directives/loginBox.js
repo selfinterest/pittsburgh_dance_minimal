@@ -23,7 +23,7 @@ angular.module("loginBoxDirective", [])     //Module dependencies would go in []
                 (3) A submit action.
                 (4) A flag that gets triggered when the login is invalid.
                 The isolate scope works by reading the value of a DOM attribute.
-                <login-box isVisible="login.showLogin" submit="login.perform" invalid="login.invalid"></login-box>
+                <login-box focusWhen="login.showLogin" submit="login.perform" invalid="login.invalid"></login-box>
 
                 So the value of scope.focusWhen is set to the value of login.showLogin on the parent scope (that is, NavCtrl.)
                 The value of invalid is set to the value of login.showLogin on the parent scope.
